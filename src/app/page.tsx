@@ -4,7 +4,8 @@ import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { Header } from "@/components/layout/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, TrendingUp, DollarSign, BarChart3 } from "lucide-react";
+import { Users, TrendingUp, DollarSign, BarChart3, MapPin, Calendar as CalendarIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const stats = [
@@ -71,9 +72,49 @@ export default function DashboardPage() {
             <CardTitle>Welcome to Liga Soccer</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-6">
               Your comprehensive soccer management platform. Navigate through the sidebar to access different features.
             </p>
+            
+            <div className="grid gap-4 md:grid-cols-2">
+              <Link
+                href="/pays"
+                className="group p-6 rounded-lg border bg-card hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors">
+                      Gestion des Académies
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Accédez aux pays, académies, équipes et joueurs
+                    </p>
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                href="/matches"
+                className="group p-6 rounded-lg border bg-card hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center">
+                    <CalendarIcon className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-green-500 transition-colors">
+                      Calendrier et Matchs
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Gérez les matchs et séances d'entraînement
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>
